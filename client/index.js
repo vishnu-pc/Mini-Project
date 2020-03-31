@@ -10,7 +10,6 @@ document.title = TITLE
 
 async function showExamples(data) {
 	// Create a container in the visor
-	tfvis = true;
 	const surface = tfvis.visor().surface({ name: 'Input Data Examples', tab: 'Input Data'});  
   
 	// Get the examples
@@ -40,7 +39,7 @@ async function showExamples(data) {
   async function run() {  
 	const data = new MnistData();
 	await data.load();
-	//await showExamples(data);
+	//await showExamples(data); ****************** tfjs-vis function *********************************
   }
   
   document.addEventListener('DOMContentLoaded', run);
