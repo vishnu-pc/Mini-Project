@@ -1,6 +1,6 @@
-import * as tf from '@tensorflow/tfjs'; 
+import * as tf from '@tensorflow/tfjs' 
 
-const IMAGE_SIZE = 784; 
+const IMAGE_SIZE = 784;
 const NUM_CLASSES = 10;
 const NUM_DATASET_ELEMENTS = 65000;
 
@@ -9,16 +9,17 @@ const TRAIN_TEST_RATIO = 5 / 6;
 const NUM_TRAIN_ELEMENTS = Math.floor(TRAIN_TEST_RATIO * NUM_DATASET_ELEMENTS);
 const NUM_TEST_ELEMENTS = NUM_DATASET_ELEMENTS - NUM_TRAIN_ELEMENTS;
 
-const MNIST_IMAGES_SPRITE_PATH = 'https://storage.googleapis.com/learnjs-data/model-builder/mnist_images.png';
-const MNIST_LABELS_PATH = 'https://storage.googleapis.com/learnjs-data/model-builder/mnist_labels_uint8';
+const MNIST_IMAGES_SPRITE_PATH =
+    'https://storage.googleapis.com/learnjs-data/model-builder/mnist_images.png';
+const MNIST_LABELS_PATH =
+    'https://storage.googleapis.com/learnjs-data/model-builder/mnist_labels_uint8';
 
-/*
+/**
  * A class that fetches the sprited MNIST dataset and returns shuffled batches.
  *
  * NOTE: This will get much easier. For now, we do data fetching and
  * manipulation manually.
-*/
-
+ */
 export class MnistData {
   constructor() {
     this.shuffledTrainIndex = 0;
