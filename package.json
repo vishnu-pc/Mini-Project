@@ -8,6 +8,7 @@
     "build": "rollup --config"
   },
   "dependencies": {
+    "@rollup/plugin-json": "^4.0.2",
     "@tensorflow/tfjs": "^1.7.1",
     "@tensorflow/tfjs-vis": "^1.4.0",
     "bootstrap": "^4.4.1",
