@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tensorflow/tfjs": "^1.7.1",
+    "@tensorflow/tfjs-vis": "^1.4.0",
     "bootstrap": "^4.4.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
