@@ -11,9 +11,10 @@ module.exports = [{
 	output: {
 		file: 'public/javascripts/main.js',
 		format: 'es',
+		sourcemap: true,
 	},
 	plugins: [
-		resolve(),
+		resolve({ browser: true }),
 		commonjs(),
 		json(),
 		alias({

@@ -11,6 +11,7 @@ module.exports = {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly',
 		__basedir: 'readonly',
+		tfvis: 'readonly',
 	},
 	parserOptions: {
 		ecmaVersion: 2018,

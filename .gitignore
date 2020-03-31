@@ -31,7 +31,8 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-public/stylesheets
+public/stylesheets/*.css
+public/stylesheets/*.css.map
 public/javascripts
 model
 
