@@ -1,8 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 import * as tf from '@tensorflow/tfjs';
-import { TITLE, TIMEOUT } from './config'
-import {MnistData} from './function';
-import { deflateRaw } from 'zlib';
+
+import { TITLE } from './config'
+import { MnistData } from './function';
+//import { deflateRaw } from 'zlib';
 
 var model;
 
@@ -92,15 +93,6 @@ async function train() {
     createLogEntry('Training complete');
 }
 
-async function main() {
-	document.title = TITLE;
-    createModel();
-    await load();
-    await train();
-    document.getElementById('selectTestDataButton').disabled = false;
-    document.getElementById('selectTestDataButton').innerText = "Ramdomly Select Test Data And Predict";
-}
-
 async function predict(batch) {
     tf.tidy(() => {
         const input_value = Array.from(batch.labels.argMax(1).dataSync());
@@ -154,5 +146,14 @@ document.getElementById('selectTestDataButton').addEventListener('click', async 
     const batch = data.nextTestBatch(1);
     await predict(batch);
 });
+
+async function main() {
+	document.title = TITLE;
+    createModel();
+    await load();
+    await train();
+    document.getElementById('selectTestDataButton').disabled = false;
+    document.getElementById('selectTestDataButton').innerText = "Ramdomly Select Test Data And Predict";
+}
 
 main();

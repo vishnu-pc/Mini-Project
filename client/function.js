@@ -126,3 +126,8 @@ class MnistData {
   }
 }
 
+export {
+	MnistData,
+	MnistData as default,
+}
+
