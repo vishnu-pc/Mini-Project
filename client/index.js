@@ -1,9 +1,7 @@
-//import 'bootstrap/dist/css/bootstrap.css';
 import * as tf from '@tensorflow/tfjs';
 
 import { TITLE } from './config'
 import { MnistData } from './function';
-//import { deflateRaw } from 'zlib';
 
 var model;
 
@@ -83,7 +81,7 @@ async function train() {
         });
 
         await model.fit(
-            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 1}
+            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 5}
         );
 
         tf.dispose(batch);
