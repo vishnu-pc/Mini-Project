@@ -81,7 +81,7 @@ async function train() {
         });
 
         await model.fit(
-            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 5}
+            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 1}
         );
 
         tf.dispose(batch);
