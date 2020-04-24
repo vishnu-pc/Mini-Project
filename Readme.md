@@ -45,6 +45,30 @@ The folders metioned above are the only ones that most likely need to be modifie
 3. server: All server side code resides here.
 4. client: All client side code resides here.
 
+## Changes Made
+
+### Requirements
+
+1. nvm version -1.1.7
+2. npm version - 6.13.4
+3. Node version - v12.16.1
+4. Tensorflow version - 6.13.4
+    - "@tensorflow/tfjs": "^1.7.1"
+    - "@tensorflow/tfjs-node": "^1.7.0"
+
+### Procedure 
+
+Install NVM v1.1.7 from online then use the commands:
+```sh
+1. nvm list available
+2. nvm install 12.16.1
+3. nvm use 12.16.1
+4. npm install --global windows-build-tools (in Admin Powershell) 
+```
+* May have to use a workaround to install windows build tools
+first - npm install --global windows-build-tools@4.0.0
+then - npm install --global windows-build-tools
+
 ## Install
 
 To  install the project, clone this repositior and install the dependencies using
@@ -67,3 +91,4 @@ To simply run the project, use:
 ```sh
 npm start
 ```
+
