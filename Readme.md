@@ -45,9 +45,7 @@ The folders metioned above are the only ones that most likely need to be modifie
 3. server: All server side code resides here.
 4. client: All client side code resides here.
 
-## Changes Made
-
-### Requirements
+## Requirements
 
 1. nvm version -1.1.7
 2. npm version - 6.13.4
@@ -65,9 +63,9 @@ Install NVM v1.1.7 from online then use the commands:
 3. nvm use 12.16.1
 4. npm install --global windows-build-tools (in Admin Powershell) 
 ```
-* May have to use a workaround to install windows build tools
-first - npm install --global windows-build-tools@4.0.0
-then - npm install --global windows-build-tools
+May have to use a workaround to install windows build tools:
+* First - npm install --global windows-build-tools@4.0.0
+* Then - npm install --global windows-build-tools
 
 ## Install
 
@@ -92,3 +90,6 @@ To simply run the project, use:
 npm start
 ```
 
+## References
+
+1. https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
