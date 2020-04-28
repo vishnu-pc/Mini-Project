@@ -93,3 +93,5 @@ npm start
 ## References
 
 1. https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
+
+2. https://codelabs.developers.google.com/codelabs/tensorflowjs-nodejs-codelab/#5
