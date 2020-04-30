@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-We have currently built this model to recognize a 28×28 pixel grayscale handwritten digit. It will train the model across multiple connecting client devices, and finally predict the output
+We have currently built this model to recognize a 28×28 pixel grayscale handwritten digit. It will train the model across multiple connecting client devices, and finally predict the output.
 
 ## Background
 
