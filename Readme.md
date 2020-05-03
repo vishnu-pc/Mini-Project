@@ -95,3 +95,11 @@ npm start
 1. https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
 
 2. https://codelabs.developers.google.com/codelabs/tensorflowjs-nodejs-codelab/#5
+
+3. https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
+   - model = tf.loadLayersModel('https://cors-anywhere.herokuapp.com/https://pctestweb.000webhostapp.com/my-model/model.json');
+
+## Problems
+
+1. Cannot render res.render html pages without view engine. 
+   - Solution: res.sendFile(path.resolve(__dirname, 'C:/Users/Vishnu/Desktop/Code/Mini-Project/public/index.html'));

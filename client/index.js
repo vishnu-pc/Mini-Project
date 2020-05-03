@@ -3,7 +3,10 @@ import * as tf from '@tensorflow/tfjs';
 import { TITLE } from './config'
 import { MnistData } from './function';
 
-var model;
+// Asynchronous function because model must be loaded Asynchrously and Global
+(async () => {
+
+const model = await tf.loadLayersModel('http://localhost:3000/model.json');
 
 function createLogEntry(entry) {
     document.getElementById('log').innerHTML += '<br>' + entry;
@@ -11,53 +14,10 @@ function createLogEntry(entry) {
 
 function createModel() {
     createLogEntry('Create model ...');
-    model = tf.sequential();
     createLogEntry('Model created');
 
     createLogEntry('Add layers ...');
-    model.add(tf.layers.conv2d({
-        inputShape: [28, 28, 1],
-        kernelSize: 5,
-        filters: 8,
-        strides: 1,
-        activation: 'relu',
-        kernelInitializer: 'VarianceScaling'
-    }));
-
-    model.add(tf.layers.maxPooling2d({
-        poolSize: [2,2],
-        strides: [2,2]
-    }));
-
-    model.add(tf.layers.conv2d({
-        kernelSize: 5,
-        filters: 16,
-        strides: 1,
-        activation: 'relu',
-        kernelInitializer: 'VarianceScaling'
-    }));
-
-    model.add(tf.layers.maxPooling2d({
-        poolSize: [2,2],
-        strides: [2,2]
-    }));
-
-    model.add(tf.layers.flatten());
-
-    model.add(tf.layers.dense({
-        units: 10,
-        kernelInitializer: 'VarianceScaling',
-        activation: 'softmax'
-    }));
-
     createLogEntry('Layers created');
-
-    createLogEntry('Start compiling ...');
-    model.compile({
-        optimizer: tf.train.sgd(0.15),
-        loss: 'categoricalCrossentropy'
-    });
-    createLogEntry('Compiled');
 }
 
 let data;
@@ -72,6 +32,14 @@ const BATCH_SIZE = 64;
 const TRAIN_BATCHES = 150;
 
 async function train() {
+
+    createLogEntry('Start compiling ...');
+    model.compile({
+        optimizer: tf.train.sgd(0.15),
+        loss: 'categoricalCrossentropy'
+	});
+    createLogEntry('Compiled');
+
     createLogEntry('Start training ...');
     for (let i = 0; i < TRAIN_BATCHES; i++) {
         const batch = tf.tidy(() => {
@@ -146,12 +114,15 @@ document.getElementById('selectTestDataButton').addEventListener('click', async 
 });
 
 async function main() {
-	document.title = TITLE;
+    document.title = TITLE;
+    const model1 = await tf.loadLayersModel('http://localhost:3000/model.json');
     createModel();
     await load();
-    await train();
+    await train(model1);
     document.getElementById('selectTestDataButton').disabled = false;
     document.getElementById('selectTestDataButton').innerText = "Ramdomly Select Test Data And Predict";
 }
 
 main();
+
+})();

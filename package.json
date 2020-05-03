@@ -32,6 +32,7 @@
     "ignore": [
       "public/javascripts/*",
       "public/stylesheets/*",
+      "routes/my-model/*",
       "model/*",
       "upload/*"
     ],
