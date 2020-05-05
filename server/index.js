@@ -54,7 +54,7 @@ const init = async () => {
     console.log('Model saved on the server')
 
     */
-   
+
 }
 
 module.exports = {
