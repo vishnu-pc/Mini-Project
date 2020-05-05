@@ -90,6 +90,9 @@ To simply run the project, use:
 npm start
 ```
 
+Device IP Address: 192.168.2.12
+Search on URL: 192.168.2.12:3000
+
 ## References
 
 1. https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
