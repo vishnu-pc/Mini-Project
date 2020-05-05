@@ -4,7 +4,6 @@ const http = require('http')
 const app = require('../app')
 
 function run() {
-	console.info('Starting server')
 
 	const port = normalizePort(process.env.PORT || '3000')
 	app.set('port', port)
@@ -53,7 +52,7 @@ function run() {
 		const bind = typeof addr === 'string'
 			? `pipe ${addr}`
 			: `port ${addr.port}`
-		console.info(`Listening on ${bind}`)
+		console.info(`Server is listening on ${bind}`)
 	}
 
 	/**

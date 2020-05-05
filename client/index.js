@@ -6,26 +6,17 @@ import { MnistData } from './function';
 // Asynchronous function because model must be loaded Asynchrously and Global
 (async () => {
 
-const model = await tf.loadLayersModel('http://localhost:3000/model.json');
-
 function createLogEntry(entry) {
     document.getElementById('log').innerHTML += '<br>' + entry;
 }
 
-function createModel() {
-    createLogEntry('Create model ...');
-    createLogEntry('Model created');
-
-    createLogEntry('Add layers ...');
-    createLogEntry('Layers created');
-}
+const model = await tf.loadLayersModel('http://localhost:3000/model.json');
+createLogEntry('Model loaded from the server');
 
 let data;
 async function load() {
-    createLogEntry('Loading MNIST data ...');
     data = new MnistData();
     await data.load();
-    createLogEntry('Data loaded successfully');
 }
 
 const BATCH_SIZE = 64;
@@ -33,14 +24,13 @@ const TRAIN_BATCHES = 150;
 
 async function train() {
 
-    createLogEntry('Start compiling ...');
+    createLogEntry('Started training on Client Web-Browser');
+
     model.compile({
         optimizer: tf.train.sgd(0.15),
         loss: 'categoricalCrossentropy'
 	});
-    createLogEntry('Compiled');
 
-    createLogEntry('Start training ...');
     for (let i = 0; i < TRAIN_BATCHES; i++) {
         const batch = tf.tidy(() => {
             const batch = data.nextTrainBatch(BATCH_SIZE);
@@ -49,14 +39,18 @@ async function train() {
         });
 
         await model.fit(
-            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 1}
+            batch.xs, batch.labels, {batchSize: BATCH_SIZE, epochs: 3}
         );
 
         tf.dispose(batch);
 
         await tf.nextFrame();
     }
-    createLogEntry('Training complete');
+    createLogEntry('Training completed');
+
+    await model.save('http://localhost:3000/model.json/upload')
+    createLogEntry('Updated Model sent back to server');
+
 }
 
 async function predict(batch) {
@@ -115,10 +109,8 @@ document.getElementById('selectTestDataButton').addEventListener('click', async 
 
 async function main() {
     document.title = TITLE;
-    const model1 = await tf.loadLayersModel('http://localhost:3000/model.json');
-    createModel();
     await load();
-    await train(model1);
+    await train();
     document.getElementById('selectTestDataButton').disabled = false;
     document.getElementById('selectTestDataButton').innerText = "Ramdomly Select Test Data And Predict";
 }
