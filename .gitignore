@@ -33,7 +33,7 @@ bower_components
 build/Release
 public/stylesheets
 public/javascripts
-model
+routes/my-model
 
 # Dependency directories
 node_modules/
