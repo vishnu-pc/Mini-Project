@@ -6,7 +6,8 @@ const sassMiddleware = require('node-sass-middleware')
 
 const indexRouter = require('./routes/index')
 const modelRouter = require('./routes/model')
-const modelWeightsRouter = require('./routes/weights')
+const weightsRouter = require('./routes/weights')
+const modelWeightsRouter = require('./routes/model.weights')
 const server = require('./server')
 
 const app = express()
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/model.json', modelRouter)
-app.use('/weights.bin', modelWeightsRouter)
+app.use('/weights.bin', weightsRouter)
+app.use('/model.weights.bin', modelWeightsRouter)
 
 server.init()
 

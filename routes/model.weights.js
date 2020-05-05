@@ -5,7 +5,7 @@ const router = express.Router()
 
 /* Get rout */
 router.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'my-model/weights.bin'));
+	res.sendFile(path.join(__dirname, 'my-model/model.weights.bin'));
 })
 
 module.exports = router
