@@ -8,7 +8,9 @@ var model;
 
 const init = async () => {
 	// This function is called on server start
-	// Your code goes here...
+    // Your code goes here...
+    
+    /*
 
     model = tf.sequential();
 
@@ -50,7 +52,9 @@ const init = async () => {
 	
     model.save('file:///Users/Vishnu/Desktop/Code/Mini-Project/routes/my-model');
     console.log('Model saved on the server')
-  
+
+    */
+   
 }
 
 module.exports = {
