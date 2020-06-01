@@ -90,8 +90,8 @@ To simply run the project, use:
 npm start
 ```
 
-Device IP Address: 192.168.2.12
-Search on URL: 192.168.2.12:3000
+Device IP Address: 192.168.2.7
+Search on URL: 192.168.2.7:3000
 
 ## References
 

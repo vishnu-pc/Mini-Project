@@ -10,7 +10,7 @@ function createLogEntry(entry) {
     document.getElementById('log').innerHTML += '<br>' + entry;
 }
 
-const model = await tf.loadLayersModel('http://192.168.2.12:3000/model.json');
+const model = await tf.loadLayersModel('http://192.168.2.7:3000/model.json');
 createLogEntry('Model loaded from the server');
 
 let data;
@@ -48,7 +48,7 @@ async function train() {
     }
     createLogEntry('Training completed');
 
-    await model.save('http://192.168.2.12:3000/model.json/upload')
+    await model.save('http://192.168.2.7:3000/model.json/upload')
     createLogEntry('Updated Model sent back to server');
 
 }
